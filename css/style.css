@@ -1,0 +1,17 @@
+body {margin:0;font-family:Arial,sans-serif;background:#fdfdfd;}
+header {display:flex;justify-content:space-between;align-items:center;padding:15px 50px;background:#0D1B2A;color:#FFD700;}
+header .logo {font-size:24px;font-weight:bold;}
+header nav ul {display:flex;list-style:none;gap:25px;}
+header nav ul li a {color:#FFD700;text-decoration:none;font-weight:500;}
+header nav ul li a.login-btn {background:#FFD700;color:#0D1B2A;padding:6px 15px;border-radius:5px;}
+.hero {text-align:center;padding:100px 20px;background:#142d4c;color:#fff;}
+.hero .btn {margin-top:20px;padding:10px 25px;background:#FFD700;color:#0D1B2A;text-decoration:none;border-radius:5px;}
+.features {display:flex;justify-content:center;gap:30px;padding:60px 20px;}
+.feature-card {background:#f5f5f5;padding:30px;text-align:center;border-radius:10px;width:250px;transition:transform 0.3s;}
+.feature-card:hover {transform:translateY(-10px);}
+.feature-card i {font-size:40px;color:#0D1B2A;margin-bottom:15px;}
+footer {background:#0D1B2A;color:#FFD700;padding:40px 50px 20px 50px;}
+.footer-bottom {text-align:center;margin-top:30px;font-size:14px;}
+.page-content {padding:50px;text-align:center;}
+form input {padding:10px;margin:10px;width:250px;}
+form button {padding:10px 20px;background:#FFD700;color:#0D1B2A;border:none;border-radius:5px;cursor:pointer;}
