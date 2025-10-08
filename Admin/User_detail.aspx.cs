@@ -55,9 +55,9 @@ namespace project_banking.Admin
             {
 
                 int id = Convert.ToInt32(e.CommandArgument);
-                ViewState["id"] = id;
+                ViewState["account_no"] = id;
                 getcon();
-                cmd = new SqlCommand("DELETE FROM Account WHERE Id='" + ViewState["id"] + "'", con);
+                cmd = new SqlCommand("DELETE FROM Account WHERE account_no='" + ViewState["account_no"] + "'", con);
                 cmd.ExecuteNonQuery();
                 fillgrid();
 

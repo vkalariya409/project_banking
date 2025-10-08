@@ -80,6 +80,154 @@
                         box-shadow: 0px 4px 10px rgba(0, 102, 204, 0.35);
                         transform: translateY(-2px);
                     }
+
+            /* ====== Minimal Light Blue Header Theme ====== */
+            header {
+                background: #e3f2fd; /* Light blue solid background */
+                padding: 12px 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 2px solid #bbdefb; /* subtle divider */
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            }
+
+                /* Logo Styling */
+                header .logo {
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: #0d47a1;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                /* Navigation Styling */
+                header nav ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 20px;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                    header nav ul li {
+                        position: relative;
+                    }
+
+                        header nav ul li a {
+                            text-decoration: none;
+                            color: #1565c0;
+                            font-size: 15px;
+                            font-weight: 500;
+                            padding: 8px 14px;
+                            border-radius: 6px;
+                            transition: 0.3s ease;
+                        }
+
+                            /* Hover Effects */
+                            header nav ul li a:hover {
+                                background: #bbdefb;
+                                color: #0d47a1;
+                            }
+
+                        /* Special Styling for Login Button */
+                        header nav ul li .login-btn {
+                            background: #42a5f5;
+                            color: #fff;
+                            font-weight: 600;
+                            padding: 8px 18px;
+                            border-radius: 6px;
+                        }
+
+                            header nav ul li .login-btn:hover {
+                                background: #1e88e5;
+                            }
+
+            /* ===== Responsive Design ===== */
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 15px;
+                }
+
+                    header nav ul {
+                        flex-direction: column;
+                        width: 100%;
+                        gap: 10px;
+                    }
+
+                        header nav ul li a {
+                            display: block;
+                            width: 100%;
+                        }
+            }
+
+
+            /* Footer */
+.footer {
+  background: #0d47a1;
+  color: #fff;
+  padding: 40px 0 20px;
+  margin-top: 50px;
+}
+
+.footer .container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.footer-logo h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.footer-logo p {
+  font-size: 0.95rem;
+  color: #bbdefb;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #90caf9;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin: 8px 0;
+}
+.footer-links ul li a {
+  color: #e3f2fd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links ul li a:hover {
+  color: #fff;
+}
+
+.footer-contact p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #e3f2fd;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 20px;
+}
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #bbdefb;
+}
         </style>
     </head>
     <body>
@@ -94,6 +242,7 @@
                     <%-- <li><a href="about.html">About Us</a></li>--%>
                     <%--    <li><a href="../contact.html">Contact</a></li>--%>
                     <li><a href="../login.aspx" class="login-btn">Login</a></li>
+                     <li><a href="profile.aspx" class="login-btn">👤</a></li>
                 </ul>
             </nav>
         </header>
@@ -127,7 +276,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Account no">
                     <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("account_no") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Name">
@@ -162,70 +311,41 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("account_no") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </section>
 
-    <section>
-        <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 28px; font-weight: 700; color: #1a75ff; text-align: center; margin: 30px 0; letter-spacing: 1px; text-shadow: 0px 2px 4px rgba(0, 90, 180, 0.15);">User WithDraw 
-        </h1>
-    </section>
-
-    <section>
-       
-    </section>
-
-
-    <section>
-    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 28px; font-weight: 700; color: #1a75ff; text-align: center; margin: 30px 0; letter-spacing: 1px; text-shadow: 0px 2px 4px rgba(0, 90, 180, 0.15);">User Transfer
-    </h1>
-</section>
-    <section>
-
-    </section>
-
-
-    <section>
-    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 28px; font-weight: 700; color: #1a75ff; text-align: center; margin: 30px 0; letter-spacing: 1px; text-shadow: 0px 2px 4px rgba(0, 90, 180, 0.15);">User Deposit 
-    </h1>
-</section>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
-    <footer>
-    <div class="footer-container">
-        <div class="footer-about">
-            <h4>About Golden Bank</h4>
-            <p>
-                We provide trusted banking solutions with a personal touch.
-            </p>
+           <footer class="footer">
+    <div class="container">
+        <div class="footer-logo">
+            <h2>BankSimple</h2>
+            <p>Smart • Secure • Simple Banking</p>
         </div>
+
         <div class="footer-links">
-            <h4>Quick Links</h4>
-            <%--<ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>--%>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.aspx">Home</a></li>
+                <li><a href="about.aspx">About</a></li>
+                <li><a href="services.aspx">Services</a></li>
+                <li><a href="contact.aspx">Contact</a></li>
+            </ul>
         </div>
+
         <div class="footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-                <i class="fas fa-phone"></i>+91 8799017545
-            </p>
-            <p>
-                <i class="fas fa-envelope"></i>info@goldenbank.com
-            </p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+            <h3>Contact Us</h3>
+            <p>Email: support@banksimple.com</p>
+            <p>Phone: +91 98765 43210</p>
         </div>
     </div>
-    <p class="footer-bottom">
-        &copy; 2025 Golden Bank. All Rights Reserved.
-    </p>
+    <div class="footer-bottom">
+        <p>&copy; 2025 BankSimple. All Rights Reserved.</p>
+    </div>
 </footer>
     </body>
 </html>
