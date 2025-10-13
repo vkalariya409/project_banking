@@ -1,0 +1,149 @@
+﻿.loan-img {
+    width:20%;
+    height:250px;
+    border-radius: 18px;
+    border: 3px solid transparent;
+    background: linear-gradient(145deg, #d0e9ff, #e8f3ff);
+    padding: 5px;
+    box-shadow: 0 6px 25px rgba(0, 140, 255, 0.2);
+    object-fit: cover;
+    transition: all 0.6s ease;
+    animation: fadeInUp 1s ease both;
+}
+
+    /* Hover effect */
+    .loan-img:hover {
+        transform: scale(1.08) rotate(-1deg);
+        box-shadow: 0 10px 35px rgba(30, 136, 229, 0.5);
+        border: 3px solid #64b5f6;
+        background: linear-gradient(145deg, #b3e5fc, #e1f5fe);
+    }
+
+/* Entry animation (on page load) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional glowing border animation */
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 10px #90caf9, 0 0 20px #64b5f6;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #42a5f5, 0 0 30px #1e88e5;
+    }
+
+    100% {
+        box-shadow: 0 0 10px #90caf9, 0 0 20px #64b5f6;
+    }
+}
+
+.loan-img:hover {
+    animation: borderGlow 2s infinite alternate;
+}
+
+
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+}
+
+.loan-card {
+    background: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #90caf9;
+    box-shadow: 0 6px 15px rgba(33,150,243,0.25);
+    overflow: hidden;
+    width: 280px;
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+    .loan-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(25,118,210,0.4);
+    }
+
+.loan-content {
+    padding: 15px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #0a2351;
+}
+
+    .loan-content span {
+        font-weight: 600;
+        color: #1565c0;
+    }
+
+    .loan-content .loan-label {
+        display:inline-block;
+        margin: 5px 0 10px 0;
+        color: #0d47a1;
+        line-height: 1.5;
+        word-wrap: break-word;
+    }
+
+.loan-btn {
+    display: inline-block; /* changed from block to inline-block */
+    text-align: center;
+    background: linear-gradient(135deg,#64b5f6,#42a5f5);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 15px 0; /* adjust top-bottom only if needed */
+    padding: 10px 20px; /* wider padding for better button look */
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .loan-btn:hover {
+        background: linear-gradient(135deg,#1e88e5,#1565c0);
+        box-shadow: 0 4px 12px rgba(25,118,210,0.5);
+    }
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.back-btn {
+    display: inline-block;
+    background: linear-gradient(135deg,#64b5f6,#42a5f5);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .back-btn:hover {
+        background: linear-gradient(135deg,#1e88e5,#1565c0);
+        box-shadow: 0 4px 12px rgba(25,118,210,0.5);
+        transform: translateY(-2px);
+    }

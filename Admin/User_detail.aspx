@@ -239,10 +239,10 @@
                 <ul>
                     <li><a href="Admin.aspx">User Details</a></li>
                     <li><a href="User_detail.aspx">Bnak details</a></li>
-                    <%-- <li><a href="about.html">About Us</a></li>--%>
+                    <li><a href="Add_LoanCatagory.aspx">Apply loan</a></li>
                     <%--    <li><a href="../contact.html">Contact</a></li>--%>
                     <li><a href="../login.aspx" class="login-btn">Login</a></li>
-                     <li><a href="profile.aspx" class="login-btn">👤</a></li>
+                     <li><a href="../profile.aspx" class="login-btn">👤</a></li>
                 </ul>
             </nav>
         </header>

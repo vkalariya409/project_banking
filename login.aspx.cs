@@ -42,7 +42,7 @@ namespace project_banking
                 if (i > 0)
                 {
                     Session["user"] = TextBox1.Text;
-                    Response.Redirect("index.html");
+                    Response.Redirect("index.aspx");
 
                 }
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Add_LoanCatagory.aspx.cs" Inherits="project_banking.Admin.Add_LoanCatagory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Add_LoanSubCatagory.aspx.cs" Inherits="project_banking.Admin.Add_LoanSubCatagory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -13,80 +13,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
         <style>
-            .loan-apply-container {
-                width: 60%;
-                margin: 30px auto;
-                background: #f0f7ff; /* soft blue background */
-                padding: 25px;
-                border-radius: 12px;
-                box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-                font-family: 'Segoe UI', sans-serif;
-            }
-
-            .loan-heading {
-                text-align: center;
-                color: #004aad; /* deep blue */
-                font-size: 26px;
-                margin-bottom: 25px;
-                font-weight: bold;
-            }
-
-            .loan-apply-table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-
-                .loan-apply-table td {
-                    padding: 12px 10px;
-                    vertical-align: middle;
-                }
-
-                .loan-apply-table tr:nth-child(even) {
-                    background-color: #e6f0ff; /* light blue stripe */
-                }
-
-                .loan-apply-table tr:hover {
-                    background-color: #d0e4ff; /* hover effect */
-                    transition: 0.3s ease;
-                }
-
-            .txtbox, .ddl, .file-upload {
-                width: 95%;
-                padding: 8px;
-                border: 1px solid #0078d7; /* medium blue border */
-                border-radius: 6px;
-                font-size: 14px;
-            }
-
-                .txtbox:focus, .ddl:focus {
-                    border-color: #004aad;
-                    outline: none;
-                }
-
-            .img-preview {
-                width: 120px;
-                height: 120px;
-                margin-top: 8px;
-                border-radius: 6px;
-                border: 1px solid #0078d7;
-                object-fit: cover;
-            }
-
-            #loanbut {
-                background-color: #0078d7; /* deep blue */
-                color: white;
-                border: none;
-                padding: 10px 18px;
-                border-radius: 6px;
-                cursor: pointer;
-                font-weight: bold;
-                font-size: 14px;
-                transition: 0.3s ease;
-            }
-
-                #loanbut:hover {
-                    background-color: #005fa3;
-                }
             /* ====== Minimal Light Blue Header Theme ====== */
             header {
                 background: #e3f2fd; /* Light blue solid background */
@@ -239,6 +165,71 @@
                     font-size: 0.85rem;
                     color: #bbdefb;
                 }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: #f0f8ff;
+                padding: 30px;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 60%;
+                margin: auto;
+                background-color: #e6f0ff;
+                border-radius: 10px;
+                box-shadow: 0 8px 16px rgba(0, 0, 255, 0.1);
+                animation: fadeIn 1s ease-in-out;
+                padding: 20px;
+            }
+
+            td {
+                padding: 12px 12px;
+                color: #003366;
+                font-weight: 500;
+            }
+
+            input[type="text"], select, textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #80bfff;
+                border-radius: 5px;
+                background-color: #ffffff;
+                transition: box-shadow 0.3s ease-in-out;
+            }
+
+                input[type="text"]:focus, select:focus, textarea:focus {
+                    outline: none;
+                    box-shadow: 0 0 5px #3399ff;
+                }
+
+            .blue-button {
+                background-color: #0066cc;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+                .blue-button:hover {
+                    background-color: #004d99;
+                    transform: scale(1.05);
+                }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
         </style>
     </head>
     <body>
@@ -259,117 +250,133 @@
         </header>
 </asp:Content>
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-    <div class="loan-apply-container">
-        <h2 class="loan-heading">💰 Add Loan Category</h2>
 
-        <center>
-            <table>
-                <tr>
-                    <td>Category name:</td>
-                    <td>
-                        <asp:TextBox ID="txtcatname" runat="server"></asp:TextBox></td>
+    <table>
+        <tr>
+            <td>Category name:</td>
+            <td>
+                <asp:DropDownList ID="drpadd" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpadd_SelectedIndexChanged">
+                    <asp:ListItem>---Select Loan---</asp:ListItem>
+                </asp:DropDownList>
+        </tr>
+        <tr>
+            <td>Loan name:</td>
+            <td>
+                <asp:TextBox ID="txtloannm" runat="server"></asp:TextBox></td>
+            </td>
+                
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <asp:TextBox ID="txtdscription" runat="server"></asp:TextBox></td>
 
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td>
-                        <asp:TextBox ID="txtdescription" runat="server"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td>Intrest Rate:</td>
+            <td>
+                <asp:TextBox ID="txtintrest" runat="server"></asp:TextBox></td>
 
-                </tr>
-                <tr>
-                    <td>intrest Rate:</td>
-                    <td>
-                        <asp:TextBox ID="txtintrest" runat="server"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td>Maximum Tenure</td>
+            <td>
+                <asp:TextBox ID="txttenure" runat="server"></asp:TextBox></td>
 
-                </tr>
-                <tr>
-                    <td>Maximum Tenure:</td>
-                    <td>
-                        <asp:TextBox ID="txttenure" runat="server"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td>Maximum Amount</td>
+            <td>
+                <asp:TextBox ID="txtamount" runat="server"></asp:TextBox></td>
 
-                </tr>
-                <tr>
-                    <td>Eligibility:</td>
-                    <td>
-                        <asp:TextBox ID="txteligibility" runat="server"></asp:TextBox></td>
+        </tr>
 
-                </tr>
-                <tr>
-                    <td>image:</td>
-                    <td>
-                        <asp:FileUpload ID="Fldimg" runat="server" />
-                </tr>
+        <tr>
+            <td>Eligibility</td>
+            <td>
+                <asp:TextBox ID="txteligibility" runat="server"></asp:TextBox></td>
 
-                <tr>
-                    <td></td>
-                    <td>
-                        <asp:Button ID="btnadd" runat="server" Text="Add Category" OnClick="btnadd_Click" /></td>
+        </tr>
+        <tr>
+            <td>Loan image</td>
+            <asp:FileUpload ID="fldimg" runat="server" />
 
-                </tr>
-            </table>
+        </tr>
+        <td></td>
+        <td>
+            <asp:Button ID="Btnaddloan" runat="server" Text="Add Loan" OnClick="Btnaddloan_Click" /></td>
 
-            <br>
-            <br>
-            <asp:GridView ID="gvloan" runat="server" AutoGenerateColumns="False" OnRowCommand="gvloan_RowCommand">
-                <Columns>
-                  <asp:TemplateField HeaderText="Category id">
-    <ItemTemplate>
-        <asp:Label ID="lblCategoryId" runat="server" Text='<%# Eval("CateId") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
+        </tr>
+    </table>
 
-<asp:TemplateField HeaderText="Category name">
-    <ItemTemplate>
-        <asp:Label ID="lblCategoryName" runat="server" Text='<%# Eval("CategoryName") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
+   <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+    <Columns>
 
-<asp:TemplateField HeaderText="Description">
-    <ItemTemplate>
-        <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
+       
+     
 
-<asp:TemplateField HeaderText="Interest Rate">
-    <ItemTemplate>
-        <asp:Label ID="lblInterestRate" runat="server" Text='<%# Eval("InterestRate") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
+        <asp:TemplateField HeaderText="CategoryId">
+            <ItemTemplate>
+                <asp:Label ID="Label1" runat="server" Text='<%# Eval("CategoryId") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-<asp:TemplateField HeaderText="Max Tenure">
-    <ItemTemplate>
-        <asp:Label ID="lblMaxTenure" runat="server" Text='<%# Eval("MaxTenure") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
+        <asp:TemplateField HeaderText="LoanName">
+            <ItemTemplate>
+                <asp:Label ID="Label2" runat="server" Text='<%# Eval("LoanName") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-<asp:TemplateField HeaderText="Eligibility">
-    <ItemTemplate>
-        <asp:Label ID="lblEligibility" runat="server" Text='<%# Eval("Eligibility") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
+        <asp:TemplateField HeaderText="Description">
+            <ItemTemplate>
+                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-<asp:TemplateField HeaderText="Image">
-    <ItemTemplate>
-        <asp:Image ID="imgCategory" runat="server" ImageUrl='<%# Eval("Image") %>' Width="100" />
-    </ItemTemplate>
-</asp:TemplateField>
+        <asp:TemplateField HeaderText="InterestRate">
+            <ItemTemplate>
+                <asp:Label ID="Label4" runat="server" Text='<%# Eval("InterestRate") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-<asp:TemplateField HeaderText="Edit">
-    <ItemTemplate>
-        <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%# Eval("CateId") %>' CommandName="cmd_edt" Text="Edit"></asp:LinkButton>
-    </ItemTemplate>
-</asp:TemplateField>
+        <asp:TemplateField HeaderText="MaxTenure">
+            <ItemTemplate>
+                <asp:Label ID="Label5" runat="server" Text='<%# Eval("MaxTenure") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-<asp:TemplateField HeaderText="Remove">
-    <ItemTemplate>
-        <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("CateId") %>' CommandName="cmd_dlt" Text="Remove"></asp:LinkButton>
-    </ItemTemplate>
-</asp:TemplateField>
-       </Columns>
-            </asp:GridView>
-        </center>
+        <asp:TemplateField HeaderText="MinAmount">
+            <ItemTemplate>
+                <asp:Label ID="Label6" runat="server" Text='<%# Eval("MinAmount") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-    </div>
+        <asp:TemplateField HeaderText="LoanImage">
+            <ItemTemplate>
+                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("LoanImage") %>' />
+            </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Eligibility">
+            <ItemTemplate>
+               <asp:Label ID="Label7" runat="server" Text='<%# Eval("Eligibility") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Edit">
+            <ItemTemplate>
+                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%# Eval("SubId") %>' CommandName="cmd_edt">Edit</asp:LinkButton>
+            </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Remove">
+            <ItemTemplate>
+                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandName="cmd_dlt" CommandArgument='<%# Eval("SubId") %>'>Remove</asp:LinkButton>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <footer class="footer">

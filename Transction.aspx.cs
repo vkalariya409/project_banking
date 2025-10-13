@@ -21,7 +21,7 @@ namespace project_banking
         IDataAdapter da;
         int depositAmount, senderBalance, transferAmount, receiverBalance, currentBalance, withdrawAmount, newBalance;
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)//check blanace(fetch account id)
         {
             getcon();
             da = new SqlDataAdapter("SELECT balance FROM Account WHERE account_no='" + TextBox1.Text + "'", con);

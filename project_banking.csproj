@@ -70,14 +70,18 @@
     <Content Include="About.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="Admin\Add_LoanCatagory.aspx" />
+    <Content Include="Admin\Add_LoanSubCatagory.aspx" />
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\User_detail.aspx" />
+    <Content Include="ApplyLoan.aspx" />
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="css\Loan.css" />
     <Content Include="css\style.css" />
     <Content Include="index.aspx" />
+    <Content Include="Loan.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Ragister.aspx" />
@@ -107,6 +111,13 @@
     <Compile Include="Admin\Add_LoanCatagory.aspx.designer.cs">
       <DependentUpon>Add_LoanCatagory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Add_LoanSubCatagory.aspx.cs">
+      <DependentUpon>Add_LoanSubCatagory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_LoanSubCatagory.aspx.designer.cs">
+      <DependentUpon>Add_LoanSubCatagory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,12 +132,26 @@
     <Compile Include="Admin\User_detail.aspx.designer.cs">
       <DependentUpon>User_detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ApplyLoan.aspx.cs">
+      <DependentUpon>ApplyLoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApplyLoan.aspx.designer.cs">
+      <DependentUpon>ApplyLoan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loan.aspx.cs">
+      <DependentUpon>Loan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loan.aspx.designer.cs">
+      <DependentUpon>Loan.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -174,6 +199,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="image\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

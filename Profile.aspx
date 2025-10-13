@@ -357,6 +357,7 @@ body {
              <%--<li><a href="services.html">Services</a></li>--%>
              <li><a href="Account.aspx">Account</a></li>
              <li><a href="Transction.aspx">Transction</a></li>
+             <li><a href="Loan.aspx">Loan</a></li>
              <li><a href="login.aspx" class="login-btn">Login</a></li>
               <li><a href="profile.aspx" class="login-btn">👤</a></li>
          </ul>
@@ -386,6 +387,8 @@ body {
     <!-- Profile Info -->
     <div class="profile-grid">
         <div class="field-card">
+
+            <asp:Label ID="lblUserId" runat="server" CssClass="userid"></asp:Label>
             <label>Full Name</label>
             <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
 

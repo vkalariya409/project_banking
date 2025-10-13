@@ -15,31 +15,13 @@ namespace project_banking.Admin
     {
 
         /// <summary>
-        /// lblCategory control.
+        /// txtcatname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategory;
-
-        /// <summary>
-        /// ddlCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
-
-        /// <summary>
-        /// lbldiscription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldiscription;
+        protected global::System.Web.UI.WebControls.TextBox txtcatname;
 
         /// <summary>
         /// txtdescription control.
@@ -51,15 +33,6 @@ namespace project_banking.Admin
         protected global::System.Web.UI.WebControls.TextBox txtdescription;
 
         /// <summary>
-        /// lblintrest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblintrest;
-
-        /// <summary>
         /// txtintrest control.
         /// </summary>
         /// <remarks>
@@ -69,31 +42,13 @@ namespace project_banking.Admin
         protected global::System.Web.UI.WebControls.TextBox txtintrest;
 
         /// <summary>
-        /// lblAmount control.
+        /// txttenure control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAmount;
-
-        /// <summary>
-        /// txtAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAmount;
-
-        /// <summary>
-        /// lblEligibility control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEligibility;
+        protected global::System.Web.UI.WebControls.TextBox txttenure;
 
         /// <summary>
         /// txteligibility control.
@@ -105,39 +60,30 @@ namespace project_banking.Admin
         protected global::System.Web.UI.WebControls.TextBox txteligibility;
 
         /// <summary>
-        /// lblImage control.
+        /// Fldimg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImage;
+        protected global::System.Web.UI.WebControls.FileUpload Fldimg;
 
         /// <summary>
-        /// fuImage control.
+        /// btnadd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuImage;
+        protected global::System.Web.UI.WebControls.Button btnadd;
 
         /// <summary>
-        /// imgPreview control.
+        /// gvloan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgPreview;
-
-        /// <summary>
-        /// loanbut control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loanbut;
+        protected global::System.Web.UI.WebControls.GridView gvloan;
     }
 }

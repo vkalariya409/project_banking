@@ -282,6 +282,7 @@ header nav ul li .login-btn:hover {
              <%--<li><a href="services.html">Services</a></li>--%>
              <li><a href="Account.aspx">Account</a></li>
              <li><a href="Transction.aspx">Transction</a></li>
+             <li><a href="Loan.aspx">Loan</a></li>
              <li><a href="login.aspx" class="login-btn">Login</a></li>
               <li><a href="profile.aspx" class="login-btn">👤</a></li>
          </ul>

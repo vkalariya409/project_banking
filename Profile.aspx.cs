@@ -20,7 +20,7 @@ namespace project_banking
         SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
-
+        string fnm;
         void getcon()
         {
             con = new SqlConnection(s);
@@ -30,46 +30,106 @@ namespace project_banking
         void clear()
         {
             txtName.Text = "";
-        
             txtMobile.Text = "";
             txtBalance.Text = "";
             txtAccount.Text = "";
+            lblUserId.Text = "";
+            imgAvatar.ImageUrl = "~/assets/default-avatar.png";
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        void imgupload()
         {
-            if (!IsPostBack)
+            if (fuAvatar.HasFile)
             {
-                LoadProfile();
+                fnm = "~/images/" + fuAvatar.FileName;
+                fuAvatar.SaveAs(Server.MapPath(fnm));
             }
+        }
 
-        
-
-            }
-        private void LoadProfile()
+        void LoadProfile()
         {
+            if (Session["account_no"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+
             getcon();
-            da = new SqlDataAdapter("SELECT * FROM Account", con);
+            da = new SqlDataAdapter("SELECT * FROM Account WHERE account_no = @acc", con);
+            da.SelectCommand.Parameters.AddWithValue("@acc", Session["account_no"].ToString());
             ds = new DataSet();
             da.Fill(ds);
 
-          
-        }
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = ds.Tables[0].Rows[0];
+                lblUserId.Text = dr["Id"].ToString();
+                txtName.Text = dr["Name"].ToString();
+                txtMobile.Text = dr["Phone"].ToString();
+                txtAccount.Text = dr["account_no"].ToString();
+                txtBalance.Text = dr["balance"].ToString();
+
+                lblName.Text = dr["Name"].ToString();
+                lblAccountNo.Text = dr["account_no"].ToString();
+                lblBalance.Text = dr["balance"].ToString();
+
+                if (dr["photo"] != DBNull.Value && dr["photo"].ToString() != "")
+                {
+                    imgAvatar.ImageUrl = dr["photo"].ToString();
+                }
+                else
+                {
+                    imgAvatar.ImageUrl = "~/assets/default-avatar.png";
+                }
+            }
+
+           
+         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();
+            Session.Abandon();
+            clear();
             Response.Redirect("login.aspx");
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("UPDATE Account SET  Name='" + txtName + "',Phone='" + txtMobile.Text + "',account_no='" + txtAccount.Text + "',balance='" + txtBalance.Text + "'  WHERE Id='" + ViewState["account_no"] + "'", con);
+            getcon();
+            imgupload();
+
+            string photoPath = "";
+            if (fuAvatar.HasFile)
+                photoPath = fnm;
+
+            cmd = new SqlCommand("UPDATE Account SET Name=@n, Phone=@p, photo=ISNULL(NULLIF(@ph,''),photo) WHERE account_no=@acc", con);
+            cmd.Parameters.AddWithValue("@n", txtName.Text);
+            cmd.Parameters.AddWithValue("@p", txtMobile.Text);
+            cmd.Parameters.AddWithValue("@ph", photoPath);
+            cmd.Parameters.AddWithValue("@acc", txtAccount.Text);
             cmd.ExecuteNonQuery();
-            
-            clear();
-            btnEdit.Text = "Update";
+
+            con.Close();
+
+            lblMessage.Text = "Profile updated successfully!";
+            lblMessage.CssClass = "msg-success";
+
+            LoadProfile();
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Session["account_no"] == null)
+                {
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    LoadProfile();
+                }
+            }
+    }
 
 
     }
