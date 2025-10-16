@@ -102,12 +102,7 @@ namespace project_banking
             if (fuAvatar.HasFile)
                 photoPath = fnm;
 
-            cmd = new SqlCommand("UPDATE Account SET Name=@n, Phone=@p, photo=ISNULL(NULLIF(@ph,''),photo) WHERE account_no=@acc", con);
-            cmd.Parameters.AddWithValue("@n", txtName.Text);
-            cmd.Parameters.AddWithValue("@p", txtMobile.Text);
-            cmd.Parameters.AddWithValue("@ph", photoPath);
-            cmd.Parameters.AddWithValue("@acc", txtAccount.Text);
-            cmd.ExecuteNonQuery();
+           
 
             con.Close();
 
