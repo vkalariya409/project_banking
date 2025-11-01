@@ -164,7 +164,133 @@
                     font-size: 0.85rem;
                     color: #bbdefb;
                 }
-        </style>
+
+                /*Apply loan css*/
+
+    section {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+        min-height: 90vh;
+    }
+
+    /* ===== Form Container ===== */
+    section div {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(33, 150, 243, 0.25);
+        padding: 40px 60px;
+        width: 420px;
+        animation: fadeIn 0.9s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    section div:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(33, 150, 243, 0.35);
+    }
+
+    /* ===== Optional Title ===== */
+    section div::before {
+        content: "Apply for Loan";
+        display: block;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        color: #1565c0;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    /* ===== Table Layout ===== */
+    table {
+        border-collapse: separate;
+        border-spacing: 12px;
+        width: 100%;
+    }
+
+    td {
+        color: #0d47a1;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 5px;
+    }
+
+    /* ===== Textboxes ===== */
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #90caf9;
+        border-radius: 6px;
+        outline: none;
+        transition: all 0.3s ease;
+        background-color: #f1f8ff;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+        border-color: #2196f3;
+        box-shadow: 0 0 10px rgba(33, 150, 243, 0.4);
+        transform: scale(1.02);
+        background-color: #ffffff;
+    }
+
+    /* ===== File Upload ===== */
+    input[type="file"] {
+        background-color: #e3f2fd;
+        border: 1px solid #90caf9;
+        border-radius: 6px;
+        padding: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    input[type="file"]:hover {
+        background-color: #bbdefb;
+    }
+
+    /* ===== Submit Button ===== */
+    .button,
+    input[type="submit"],
+    asp\:Button {
+        background-color: #2196f3;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 12px rgba(33, 150, 243, 0.4);
+    }
+
+    .button:hover,
+    input[type="submit"]:hover {
+        background-color: #1976d2;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(33, 150, 243, 0.5);
+    }
+
+    /* ===== Fade-in Animation ===== */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }    </style>
 
     </head>
     <body>
@@ -186,7 +312,10 @@
         </header>
 </asp:Content>
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
+    <section>
+        <div>
     <table>
+
         <tr>
             <td>Name</td>
             <td>
@@ -234,6 +363,8 @@
                 <asp:Button ID="sub_btn" runat="server" Text="Submit" OnClick="Button1_Click" /></td>
         </tr>
     </table>
+            </div>
+        </section>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <footer class="footer">
