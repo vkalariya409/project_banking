@@ -342,6 +342,57 @@ body {
                         }
             }
 
+
+              body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #cce5ff, #e6f2ff);
+            margin: 0;
+            padding: 0;
+        }
+        .profile-container {
+            width: 500px;
+            margin: 60px auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+        h2 {
+            text-align: center;
+            color: #007acc;
+            margin-bottom: 20px;
+        }
+        .profile-item {
+            margin: 12px 0;
+            font-size: 17px;
+            color: #333;
+        }
+        .label {
+            font-weight: bold;
+            color: #007acc;
+        }
+        .logout-btn {
+            display: block;
+            width: 100%;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #005c99;
+        }
+        #lblMessage {
+            color: red;
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+        }
 </style>
 
         </head>
@@ -369,68 +420,25 @@ body {
 
 
 
-<div class="profile-wrapper">
+<form id="form1" runat="server">
+        <div class="profile-container">
+            <h2>Your Profile</h2>
 
-    <!-- Header -->
-    <div class="profile-header">
-        <asp:Image ID="imgAvatar" runat="server" CssClass="avatar" ImageUrl="~/assets/default-avatar.png" />
-        <div class="profile-title">
-            <h2><asp:Label ID="lblName" runat="server" Text="User Name"></asp:Label></h2>
-            <p>
-                Account No: <asp:Label ID="lblAccountNo" runat="server" Text=""></asp:Label> • 
-                Balance: <asp:Label ID="lblBalance" runat="server" Text=""></asp:Label>
-            </p>
+            <div class="profile-item"><span class="label">Account No:</span> <asp:Label ID="lblAccountNo" runat="server" /></div>
+            <div class="profile-item"><span class="label">Name:</span> <asp:Label ID="lblName" runat="server" /></div>
+            <div class="profile-item"><span class="label">Phone:</span> <asp:Label ID="lblPhone" runat="server" /></div>
+            <div class="profile-item"><span class="label">Address:</span> <asp:Label ID="lblAddress" runat="server" /></div>
+            <div class="profile-item"><span class="label">Occupation:</span> <asp:Label ID="lblOccupation" runat="server" /></div>
+            <div class="profile-item"><span class="label">Education:</span> <asp:Label ID="lblEducation" runat="server" /></div>
+            <div class="profile-item"><span class="label">Gender:</span> <asp:Label ID="lblGender" runat="server" /></div>
+            <div class="profile-item"><span class="label">Income:</span> <asp:Label ID="lblIncome" runat="server" /></div>
+            <div class="profile-item"><span class="label">Balance:</span> <asp:Label ID="lblBalance" runat="server" /></div>
+
+            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="logout-btn" OnClick="btnLogout_Click" />
         </div>
-        <asp:Button ID="btnLogout" runat="server" CssClass="btn btn-logout" Text="Logout" OnClick="btnLogout_Click" />
-    </div>
-
-    <!-- Profile Info -->
-    <div class="profile-grid">
-        <div class="field-card">
-
-            <asp:Label ID="lblUserId" runat="server" CssClass="userid"></asp:Label>
-            <label>Full Name</label>
-            <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-
-            <%--<label>Email</label>
-            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>--%>
-
-            <label>Mobile</label>
-            <asp:TextBox ID="txtMobile" runat="server"></asp:TextBox>
-
-            <div class="small-note">Update your personal information here and then press <b>Save</b>.</div>
-        </div>
-
-        <div class="field-card">
-            <label>Account Number (readonly)</label>
-            <asp:TextBox ID="txtAccount" runat="server" ReadOnly="true"></asp:TextBox>
-
-            <label>Current Balance</label>
-            <asp:TextBox ID="txtBalance" runat="server" ReadOnly="true"></asp:TextBox>
-
-            <label>Change Avatar</label>
-            <asp:FileUpload ID="fuAvatar" runat="server" />
-
-            <div class="small-note">Quickly upload a profile photo (jpg/png). Then press <b>Save</b>.</div>
-        </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="actions">
-        <asp:Button ID="btnEdit" runat="server" CssClass="btn btn-edit" Text="Edit" OnClick="btnEdit_Click" />
-        
-    </div>
-
-    <!-- Messages -->
-    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-
-</div>    <footer class="footerr-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="footer-widget">
-    </footer>
-</asp:Content>
+    </form>
+  </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
            <footer class="footer">
     <div class="container">

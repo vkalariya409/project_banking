@@ -51,26 +51,20 @@ namespace project_banking
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Button1.Text == "Ragister")
+            if (Button1.Text == "Register")
             {
                 getcon();
 
 
                 cmd = new SqlCommand("INSERT INTO Ragister (fnm,lnm,email,mobile,password)VALUES('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "')", con);
 
+
                 cmd.ExecuteNonQuery();
 
                 clear();
                 Response.Redirect("login.aspx");
             }
-            //else
-            //{
-            //    cmd = new SqlCommand("UPDATE Ragister SET fnme='" + TextBox1.Text + "',lnm='" + TextBox2.Text + "',email='" + TextBox3.Text + "',mobile='" + TextBox4.Text + "',Password='" + TextBox5.Text + "' WHERE Id='" + ViewState["id"] + "'", con);
-            //    cmd.ExecuteNonQuery();
-            //    fillgrid();
-            //    clear();
-            //    Button1.Text = "Save";
-            //}
+            
         }
     }
 }

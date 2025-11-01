@@ -388,9 +388,9 @@
                 <td>
                     <asp:TextBox ID="TextBox1" runat="server" CssClass="input-field"></asp:TextBox>
                 </td>
-                <td>
+               <%-- <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="Enter a First Name"></asp:RequiredFieldValidator>
-                </td>
+                </td>--%>
             </tr>
 
             <tr>
@@ -398,9 +398,9 @@
                 <td>
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="input-field"></asp:TextBox>
                 </td>
-                <td>
+               <%-- <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" Display="Dynamic" ErrorMessage="Enter a Last Name"></asp:RequiredFieldValidator>
-                </td>
+                </td>--%>
             </tr>
 
             <tr>
@@ -408,10 +408,10 @@
                 <td>
                     <asp:TextBox ID="TextBox3" runat="server" CssClass="input-field"></asp:TextBox>
                 </td>
-                <td>
+               <%-- <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="Enter your Email"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="Enter a proper Email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                </td>
+                </td>--%>
             </tr>
 
             <tr>
@@ -419,9 +419,9 @@
                 <td>
                     <asp:TextBox ID="TextBox4" runat="server" CssClass="input-field"></asp:TextBox>
                 </td>
-                <td>
+               <%-- <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" Display="Dynamic" ErrorMessage="Enter your Mobile Number"></asp:RequiredFieldValidator>
-                </td>
+                </td>--%>
             </tr>
 
             <tr>
@@ -429,9 +429,9 @@
                 <td>
                     <asp:TextBox ID="TextBox5" runat="server" TextMode="Password" CssClass="input-field"></asp:TextBox>
                 </td>
-                <td>
+              <%--  <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" Display="Dynamic" ErrorMessage="Enter Password"></asp:RequiredFieldValidator>
-                </td>
+                </td>--%>
             </tr>
 
             <tr>
@@ -439,9 +439,9 @@
                 <td>
                     <asp:TextBox ID="TextBox6" runat="server" TextMode="Password" CssClass="input-field"></asp:TextBox>
                 </td>
-                <td>
+               <%-- <td>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox5" ControlToValidate="TextBox6" Display="Dynamic" ErrorMessage="Passwords do not match"></asp:CompareValidator>
-                </td>
+                </td>--%>
             </tr>
 
             <tr>
@@ -457,7 +457,8 @@
 
 
 
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="validation-summary" HeaderText="Please fix the following errors:" />
+    <%--    <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="validation-summary" HeaderText="Please fix the following errors:" />
+    --%>
     </section>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
